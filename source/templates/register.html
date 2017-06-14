@@ -1,0 +1,15 @@
+{% block title %}Register{% endblock %}
+
+<p>register<p>
+
+{% block body %}
+	<h3>Register for an Account</h3>
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    <form action="." method="POST">
+    	{% csrf_token %}
+    	{% include 'form_template.html' %}
+    	<button type="submit" class="btn btn-success">Submit</button>
+    </form>	
+{% endblock %}
