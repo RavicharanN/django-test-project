@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from .forms import UserForm
@@ -17,7 +17,7 @@ from .forms import UserForm
 #                 login(request, user)
 #                 return render(request, 'index.html', {})
 #             else:    
-#                 return render(request, 'music/login.html', {'error_message': 'Your account has been disabled'})
+#                 return render(request, 'login.html', {'error_message': 'Your account has been disabled'})
 # 		else:
 # 			return render(request,'login_user.html',{'error_message':'INvalid Credentials! Plz re-enter'})
 # 	return render(request,'login_user.html')
@@ -30,7 +30,6 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                #albums = Album.objects.filter(user=request.user)
                 return render(request, 'index.html', {})
             else:
                 return render(request, 'login_user.html', {'error_message': 'Your account has been disabled'})
@@ -44,6 +43,7 @@ def logout_user(request):
     context = {
         "form": form,
     }
+    return redirect('login_user')
     return render(request, 'login_user.html', context)
 		
 

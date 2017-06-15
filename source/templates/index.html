@@ -1,3 +1,4 @@
-
-<h1>  WELCOME to the Django Project </h1>
-<a href="{% url 'login_user' %}">Logout</a>
+{% if user.username %}
+<h1>  WELCOME {{ user.username }} to the Django Project </h1>
+{% endif %}
+<a href="{% url 'logout_user' %}">Logout</a>
