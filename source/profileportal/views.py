@@ -30,12 +30,12 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return render(request, 'index.html', {})
+                return render(request, 'profileportal/index.html', {})
             else:
-                return render(request, 'login_user.html', {'error_message': 'Your account has been disabled'})
+                return render(request, 'profileportal/login_user.html', {'error_message': 'Your account has been disabled'})
         else:
-            return render(request, 'login_user.html', {'error_message': 'Invalid login'})
-    return render(request, 'login_user.html')
+            return render(request, 'profileportal/login_user.html', {'error_message': 'Invalid login'})
+    return render(request, 'profileportal/login_user.html')
 
 def logout_user(request):
     logout(request)
@@ -44,7 +44,7 @@ def logout_user(request):
         "form": form,
     }
     return redirect('login_user')
-    return render(request, 'login_user.html', context)
+    return render(request, 'profileportal/login_user.html', context)
 		
 
 def register(request):
@@ -59,17 +59,17 @@ def register(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return render(request, 'index.html', {})
+                return render(request, 'profileportal/index.html', {})
     context = {
         "form": form,
     }
-    return render(request, 'register.html', context)
+    return render(request, 'profileportal/register.html', context)
 
 def index(request):
 	if not request.user.is_authenticated():
 		return redirect('login_user')
 	else :	
-		return render(request,'index.html', {})
+		return render(request,'profileportal/index.html', {})
 
 
 

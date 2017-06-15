@@ -1,5 +1,5 @@
 body {
-    background: white url("background.png");
+    background: url("images/background.png");
 }
 
 ul.errorlist {
