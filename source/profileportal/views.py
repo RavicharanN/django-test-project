@@ -71,5 +71,11 @@ def index(request):
 	else :	
 		return render(request,'profileportal/index.html', {})
 
+def details(request):
+    if not request.user.is_authenticated():
+        return redirect('login_user')
+    else:
+        return render(request,'profileportal/details.html',{})
+
 
 
