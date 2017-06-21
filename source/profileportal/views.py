@@ -75,7 +75,20 @@ def details(request):
     if not request.user.is_authenticated():
         return redirect('login_user')
     else:
-        return render(request,'profileportal/details.html',{})
-
+        form = StudentSiteForm(request.POST or None)
+        if form.is_valid():
+            StudentSite = form.save(commit=False)
+            RollNo = form.cleaned_data['RollNo']
+            CurrentSem = form.cleaned_data['CurrentSem']
+            name = form.cleaned_data['name']
+            hackerearth = form.cleaned_data['hackerearth']
+            codechef = form.cleaned_data['codechef']
+            spoj = form.cleaned_data['spoj']
+            github = form.cleaned_data['github']
+            StudentSite = form.save()
+        context = {
+            "form": form
+        }
+        return render(request,'profileportal/details.html',context)
 
 

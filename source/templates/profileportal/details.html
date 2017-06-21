@@ -1,8 +1,9 @@
 <h1>Welcome {{user.username}} to the details page</h1>
 
 <form method="POST" action="{% url 'details' %}">
-
-	<label><p>RollNo:</p></label>
+	{% csrf_token %}
+	{{ form }}
+	<!-- <label><p>RollNo:</p></label>
 	<input type="text" id="id_RollNo" name="RollNo">
 	<br><br>
 	<label><p>CurrentSem:</p></label>
@@ -22,7 +23,7 @@
 	<br><br>
 	<label><p>github:</p></label>
 	<input type="text" id="id_github" name="github">  
-	<br><br>
-	<button type="submit">Submit</button>   
+	<br><br>-->
+	<button type="submit">Submit</button>    
 
 </form>	
