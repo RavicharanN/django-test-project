@@ -2,28 +2,27 @@
 
 <form method="POST" action="{% url 'details' %}">
 	{% csrf_token %}
-	{{ form }}
-	<!-- <label><p>RollNo:</p></label>
+	<label for="id_RollNo"><p>RollNo:</p></label>
 	<input type="text" id="id_RollNo" name="RollNo">
 	<br><br>
-	<label><p>CurrentSem:</p></label>
+	<label for="id_CurrentSem"><p>CurrentSem:</p></label>
 	<input type="text" id="id_CurrentSem" name="CurrentSem"> 
 	<br><br>
-	<label><p>name:</p></label>
+	<label for="id_name"><p>name:</p></label>
 	<input type="text" id="id_name" name="name">
 	<br><br>
-	<label><p>hackerearth:</p></label>
+	<label for="id_hackerearth"><p>hackerearth:</p></label>
 	<input type="text" id="id_hackerearth" name="hackerearth">
 	<br><br>
-	<label><p>codechef:</p></label>
+	<label for="id_codechef"><p>codechef:</p></label>
 	<input type="text" id="id_codechef" name="codechef">
 	<br><br>
-	<label><p>spoj:</p></label>
+	<label for="id_spoj"><p>spoj:</p></label>
 	<input type="text" id="id_spoj" name="spoj">
 	<br><br>
-	<label><p>github:</p></label>
+	<label for="id_github"><p>github:</p></label>
 	<input type="text" id="id_github" name="github">  
-	<br><br>-->
+	<br><br>
 	<button type="submit">Submit</button>    
 
 </form>	
