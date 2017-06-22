@@ -76,6 +76,7 @@ def details(request):
         return redirect('login_user')
     else:
         form = StudentSiteForm(request.POST or None)
+        
         if form.is_valid():
             StudentSite = form.save(commit=False)
             RollNo = form.cleaned_data['RollNo']
@@ -85,10 +86,12 @@ def details(request):
             codechef = form.cleaned_data['codechef']
             spoj = form.cleaned_data['spoj']
             github = form.cleaned_data['github']
-            StudentSite = form.save()
+            StudentSite.save()
+        
         context = {
             "form": form
         }
+
         return render(request,'profileportal/details.html',context)
 
 

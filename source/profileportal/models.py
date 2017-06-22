@@ -8,8 +8,8 @@ from django.db import models
 #Model for user info
 class StudentSite(models.Model):
 	RollNo = models.CharField(max_length=20, default='', unique='True')
-	CurrentSem = models.CharField(max_length=5, default='')
-	name = models.CharField(max_length=50, default='')
+	CurrentSem = models.CharField(max_length=5, default='', blank=True)
+	name = models.CharField(max_length=50, default='', blank=True)
 	hackerearth = models.CharField(max_length=500, default='', blank=True)
 	codechef = models.CharField(max_length=500, default='', blank=True)
 	spoj = models.CharField(max_length=500, default='', blank=True)

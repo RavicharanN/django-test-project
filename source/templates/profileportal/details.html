@@ -1,9 +1,9 @@
 <h1>Welcome {{user.username}} to the details page</h1>
 
-<form method="POST" action="{% url 'details' %}">
+<form method="POST" action="">
 	{% csrf_token %}
 	<label for="id_RollNo"><p>RollNo:</p></label>
-	<input type="text" id="id_RollNo" name="RollNo">
+	<input readonly type="text" id="id_RollNo" name="RollNo" value="{{user.username}}">
 	<br><br>
 	<label for="id_CurrentSem"><p>CurrentSem:</p></label>
 	<input type="text" id="id_CurrentSem" name="CurrentSem"> 
