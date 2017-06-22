@@ -1,18 +1,19 @@
-import bs4 as bs
-import urllib.request
+import requests
+from bs4 import BeautifulSoup
 
-username = input('enter github username - ')
-url = "https://github.com/"+username
-sauce = urllib.request.urlopen(url).read()    
-soup = bs.BeautifulSoup(sauce,'lxml')     # lxml is a parser
-print(soup)
+
+#username = input('enter github username - ')
+url = "https://github.com/RavicharanN"
+sauce = requests.get(url)    
+soup = BeautifulSoup(sauce.content,'html.parser')     # lxml is a parser
+#print(soup)
 
 repoNo = int(soup.find('span',class_='Counter').text)
 n1 = repoNo
 
 url2 = url + "?tab=repositories"
-sauce = urllib.request.urlopen(url2).read()    
-soup = bs.BeautifulSoup(sauce,'lxml')
+sauce = requests.get(url2)   
+soup = BeautifulSoup(url2,'html.parser')
 #print(soup)
 
 arr = [0]
@@ -25,8 +26,8 @@ k=2
 while(len(arr)<=n1):
     url3 = url + "?page="+str(k)+"&tab=repositories"
     k+=1
-    sauce = urllib.request.urlopen(url3).read()    
-    soup = bs.BeautifulSoup(sauce,'lxml')
+    sauce = requests.get(url3)    
+    soup = BeautifulSoup(sauce.content,'html.parser')
     tags = soup.find_all('a', itemprop="name codeRepository")
     for tag in tags:
         if tag.text!="":
